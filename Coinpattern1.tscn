@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://due1x838vhnav"]
+
+[ext_resource type="PackedScene" uid="uid://c4csssfm0s110" path="res://coins.tscn" id="1_7g6pp"]
+
+[node name="Coinpattern1" type="Node2D" unique_id=2060149023]
+
+[node name="Coins" parent="." unique_id=564345535 instance=ExtResource("1_7g6pp")]
+position = Vector2(197, 168)
+
+[node name="Coins2" parent="." unique_id=1198591436 instance=ExtResource("1_7g6pp")]
+position = Vector2(198, 233)
+
+[node name="Coins3" parent="." unique_id=1327520331 instance=ExtResource("1_7g6pp")]
+position = Vector2(263, 172)
+
+[node name="Coins4" parent="." unique_id=1399440647 instance=ExtResource("1_7g6pp")]
+position = Vector2(321, 236)
+
+[node name="Coins5" parent="." unique_id=1554975383 instance=ExtResource("1_7g6pp")]
+position = Vector2(261, 235)
+
+[node name="Coins6" parent="." unique_id=684474479 instance=ExtResource("1_7g6pp")]
+position = Vector2(322, 179)

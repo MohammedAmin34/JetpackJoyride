@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c4csssfm0s110"]
+
+[ext_resource type="Script" uid="uid://dnddolvpby23i" path="res://Coins.cs" id="1_665jj"]
+[ext_resource type="Texture2D" uid="uid://cso1aq1xne4qu" path="res://Firefly_RemoveBackground.png" id="1_tsooq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6sism"]
+radius = 23.0
+
+[node name="Coins" type="Node2D" unique_id=1399440647]
+script = ExtResource("1_665jj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1831740017]
+scale = Vector2(0.10537002, 0.101083025)
+texture = ExtResource("1_tsooq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2020403520]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1401573379]
+shape = SubResource("CircleShape2D_6sism")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnCoinsEntered"]

@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://oeoh6xu0yda4"]
+
+[ext_resource type="Texture2D" uid="uid://bd1chc8ammk2k" path="res://images.jpg" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://c8a75u2skys6m" path="res://game.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://due1x838vhnav" path="res://Coinpattern1.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://c5poo15muke2s" path="res://Coinpattern2.tscn" id="4_1bvp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3c2i"]
+size = Vector2(2296.5, 27)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n3c2i"]
+font_size = 32
+
+[sub_resource type="Theme" id="Theme_7w65i"]
+default_font_size = 39
+
+[node name="Main" type="Node" unique_id=661025610]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=199743384]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=430520261]
+position = Vector2(712, 628)
+shape = SubResource("RectangleShape2D_n3c2i")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=849193194]
+position = Vector2(709, -15.5)
+shape = SubResource("RectangleShape2D_n3c2i")
+
+[node name="Backround" type="Node2D" parent="." unique_id=281881417]
+
+[node name="Goat" type="Parallax2D" parent="Backround" unique_id=2144088080]
+scroll_offset = Vector2(700, 0)
+repeat_size = Vector2(1150, 0)
+autoscroll = Vector2(-200, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Backround/Goat" unique_id=1801138044]
+position = Vector2(576.00006, 365.37497)
+scale = Vector2(1.9338359, 2.2231343)
+texture = ExtResource("1_0xm2m")
+
+[node name="Game" parent="." unique_id=1048045663 instance=ExtResource("1_ig7tw")]
+
+[node name="GameOverScreen" type="CanvasLayer" parent="Game" unique_id=1114852130]
+visible = false
+
+[node name="Gameover" type="Label" parent="Game/GameOverScreen" unique_id=1237152891]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_top = -324.0
+offset_right = 83.0
+offset_bottom = -279.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Gameover"
+label_settings = SubResource("LabelSettings_n3c2i")
+
+[node name="Restart" type="Button" parent="Game/GameOverScreen" unique_id=1649960704]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = 60.0
+offset_right = 106.0
+offset_bottom = 91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7w65i")
+text = "Restart"
+
+[node name="Node2D" parent="." unique_id=2060149023 instance=ExtResource("3_h2yge")]
+position = Vector2(756, 164)
+
+[node name="Coinpattern1" parent="." unique_id=1559766765 instance=ExtResource("3_h2yge")]
+position = Vector2(1475, 251)
+
+[node name="Coinpattern2" parent="." unique_id=551727133 instance=ExtResource("4_1bvp3")]
+position = Vector2(1140, -198)

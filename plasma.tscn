@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b0deiw1nymr5"]
+
+[ext_resource type="Script" uid="uid://d2oogtc13tig8" path="res://Plasma.cs" id="1_e7d8j"]
+[ext_resource type="Texture2D" uid="uid://dv4nrvj12cg0g" path="res://ChatGPT_Image_29_sep._2026_09_05_17-removebg-preview.png" id="1_wjh0s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n3c2i"]
+radius = 26.0
+height = 52.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3thju"]
+size = Vector2(23, 125)
+
+[node name="Plasma" type="StaticBody2D" unique_id=1479553417]
+script = ExtResource("1_e7d8j")
+
+[node name="Roundshape2" type="CollisionShape2D" parent="." unique_id=493710628]
+position = Vector2(591, 136)
+shape = SubResource("CapsuleShape2D_n3c2i")
+
+[node name="StickShape2" type="CollisionShape2D" parent="." unique_id=664454435]
+position = Vector2(590, 214.5)
+shape = SubResource("RectangleShape2D_3thju")
+
+[node name="RoundShape2" type="CollisionShape2D" parent="." unique_id=2106835292]
+position = Vector2(590, 294)
+shape = SubResource("CapsuleShape2D_n3c2i")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1276861770]
+
+[node name="Roundshape" type="CollisionShape2D" parent="Area2D" unique_id=650631592]
+position = Vector2(591, 136)
+shape = SubResource("CapsuleShape2D_n3c2i")
+
+[node name="StickShape" type="CollisionShape2D" parent="Area2D" unique_id=466180426]
+position = Vector2(589.5, 214.5)
+shape = SubResource("RectangleShape2D_3thju")
+
+[node name="RoundShape" type="CollisionShape2D" parent="Area2D" unique_id=1110954366]
+position = Vector2(590, 294)
+shape = SubResource("CapsuleShape2D_n3c2i")
+
+[node name="Plasma" type="Sprite2D" parent="." unique_id=1884088974]
+position = Vector2(591, 215.25)
+scale = Vector2(0.43032786, 0.4217221)
+texture = ExtResource("1_wjh0s")

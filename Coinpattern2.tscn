@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c5poo15muke2s"]
+
+[ext_resource type="PackedScene" uid="uid://c4csssfm0s110" path="res://coins.tscn" id="1_20xf7"]
+
+[node name="Coinpattern2" type="Node2D" unique_id=551727133]
+
+[node name="Coins" parent="." unique_id=564345535 instance=ExtResource("1_20xf7")]
+position = Vector2(347, 293)
+
+[node name="Coins2" parent="." unique_id=680495207 instance=ExtResource("1_20xf7")]
+position = Vector2(251, 296)
+
+[node name="Coins3" parent="." unique_id=1176601532 instance=ExtResource("1_20xf7")]
+position = Vector2(243, 394)
+
+[node name="Coins4" parent="." unique_id=1041035820 instance=ExtResource("1_20xf7")]
+position = Vector2(333, 389)
+
+[node name="Coins5" parent="." unique_id=2143205627 instance=ExtResource("1_20xf7")]
+position = Vector2(293, 342)

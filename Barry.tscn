@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://dkv5uvl7wr82d"]
+
+[ext_resource type="Script" uid="uid://c5h4xpowr6kkk" path="res://Barry.cs" id="1_3thju"]
+[ext_resource type="Texture2D" uid="uid://d1ji0thf8krxk" path="res://barry.png" id="2_3thju"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3c2i"]
+size = Vector2(76, 111)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u87ma"]
+atlas = ExtResource("2_3thju")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj3p7"]
+atlas = ExtResource("2_3thju")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ie3g"]
+atlas = ExtResource("2_3thju")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2or22"]
+atlas = ExtResource("2_3thju")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt1fd"]
+atlas = ExtResource("2_3thju")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxu21"]
+atlas = ExtResource("2_3thju")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n3c2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u87ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj3p7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ie3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2or22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt1fd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxu21")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Barry" type="CharacterBody2D" unique_id=200472314]
+script = ExtResource("1_3thju")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1476837856]
+position = Vector2(290, 269.875)
+shape = SubResource("RectangleShape2D_n3c2i")
+
+[node name="barry" type="AnimatedSprite2D" parent="." unique_id=1351706910]
+position = Vector2(289.5, 270.5)
+scale = Vector2(1.1718748, 1.6406243)
+sprite_frames = SubResource("SpriteFrames_n3c2i")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1607655108]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1407818443]
+position = Vector2(290, 270.5)
+shape = SubResource("RectangleShape2D_n3c2i")
+
+[connection signal="PlayerTouch" from="." to="." method="OnBarryTouch"]
+[connection signal="area_entered" from="Area2D" to="." method="OnAreaEntered"]
+[connection signal="body_entered" from="Area2D" to="." method="OnPlayerTouch"]

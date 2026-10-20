@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c8a75u2skys6m"]
+
+[ext_resource type="Script" uid="uid://dmoq70c5utdug" path="res://Game.cs" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://dkv5uvl7wr82d" path="res://Barry.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://due1x838vhnav" path="res://Coinpattern1.tscn" id="3_7jktm"]
+[ext_resource type="PackedScene" uid="uid://b0deiw1nymr5" path="res://plasma.tscn" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://c5poo15muke2s" path="res://Coinpattern2.tscn" id="4_ryrav"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n3c2i"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_7w65i"]
+font_size = 40
+
+[node name="Game" type="Node2D" unique_id=1048045663]
+script = ExtResource("1_80nbo")
+plasmaPackedScene = ExtResource("3_fc0e3")
+CoinPattern1 = ExtResource("3_7jktm")
+CoinPattern2 = ExtResource("4_ryrav")
+
+[node name="Barry" parent="." unique_id=200472314 instance=ExtResource("2_feb5d")]
+
+[node name="Plasma" parent="." unique_id=1479553417 instance=ExtResource("3_fc0e3")]
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=338451571]
+wait_time = 5.0
+autostart = true
+
+[node name="PlasmaSpawner" type="Marker2D" parent="." unique_id=503928354]
+position = Vector2(900, 0)
+
+[node name="CoinSpawnTimer" type="Timer" parent="." unique_id=1196997166]
+wait_time = 3.0829999999999997
+autostart = true
+
+[node name="CoinSpawner" type="Marker2D" parent="." unique_id=403947449]
+position = Vector2(901, 221)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2060126025]
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=1490872296]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_top = 90.0
+offset_right = -330.0
+offset_bottom = 145.0
+grow_horizontal = 2
+text = "Coins: 0"
+label_settings = SubResource("LabelSettings_n3c2i")
+
+[node name="TotalScore" type="Label" parent="CanvasLayer" unique_id=1898935741]
+offset_left = 95.0
+offset_top = 33.0
+offset_right = 344.0
+offset_bottom = 105.0
+text = "Distance: 0m"
+label_settings = SubResource("LabelSettings_7w65i")
+
+[connection signal="CoinCollected" from="Barry" to="." method="UpdateScore"]
+[connection signal="PlayerTouch" from="Barry" to="." method="OnBarryDeath"]
+[connection signal="timeout" from="SpawnTimer" to="." method="OnSpawnTimerTimeout"]
+[connection signal="timeout" from="CoinSpawnTimer" to="." method="OnCoinSpawnerTimeOut"]
