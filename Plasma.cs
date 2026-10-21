@@ -3,7 +3,7 @@ using System;
 
 public partial class Plasma : StaticBody2D
 {
-	static public float speed = 200;
+	static public float speed = 280;
 
 	
 	// Called when the node enters the scene tree for the first time.

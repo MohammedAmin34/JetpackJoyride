@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://due1x838vhnav" path="res://Coinpattern1.tscn" id="3_7jktm"]
 [ext_resource type="PackedScene" uid="uid://b0deiw1nymr5" path="res://plasma.tscn" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://c5poo15muke2s" path="res://Coinpattern2.tscn" id="4_ryrav"]
+[ext_resource type="PackedScene" uid="uid://b8yki6nfyop7r" path="res://Missle.tscn" id="6_ryrav"]
+[ext_resource type="AudioStream" uid="uid://ce5kepv2cp4gl" path="res://Jetpack Joyride OST 🎼🎹 - Main Theme (1).mp3" id="7_eow3j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n3c2i"]
 font_size = 40
@@ -21,6 +23,7 @@ CoinPattern2 = ExtResource("4_ryrav")
 [node name="Barry" parent="." unique_id=200472314 instance=ExtResource("2_feb5d")]
 
 [node name="Plasma" parent="." unique_id=1479553417 instance=ExtResource("3_fc0e3")]
+position = Vector2(62, -24)
 
 [node name="SpawnTimer" type="Timer" parent="." unique_id=338451571]
 wait_time = 5.0
@@ -58,7 +61,21 @@ offset_bottom = 105.0
 text = "Distance: 0m"
 label_settings = SubResource("LabelSettings_7w65i")
 
+[node name="Missle" parent="." unique_id=939446886 instance=ExtResource("6_ryrav")]
+position = Vector2(1248, 491)
+
+[node name="MissleSpawnerTimer" type="Timer" parent="." unique_id=307150767]
+wait_time = 2.488
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2093641466]
+stream = ExtResource("7_eow3j")
+volume_db = 15.075
+autoplay = true
+stream_paused = true
+
 [connection signal="CoinCollected" from="Barry" to="." method="UpdateScore"]
 [connection signal="PlayerTouch" from="Barry" to="." method="OnBarryDeath"]
 [connection signal="timeout" from="SpawnTimer" to="." method="OnSpawnTimerTimeout"]
 [connection signal="timeout" from="CoinSpawnTimer" to="." method="OnCoinSpawnerTimeOut"]
+[connection signal="timeout" from="MissleSpawnerTimer" to="." method="OnMissileTimeOut"]

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b8yki6nfyop7r"]
+
+[ext_resource type="Texture2D" uid="uid://cygy461l5vt4t" path="res://2d-missile-games-animations-260nw-2121131468-removebg-preview.png" id="1_amb8d"]
+[ext_resource type="Script" uid="uid://bgpj8yo5brx5q" path="res://Missile.cs" id="1_xm7is"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w65i"]
+size = Vector2(116, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ml47k"]
+size = Vector2(112, 32)
+
+[node name="Missile" type="StaticBody2D" unique_id=1607642142]
+script = ExtResource("1_xm7is")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1384801399]
+position = Vector2(-1, -1)
+scale = Vector2(0.3167939, 0.3607143)
+texture = ExtResource("1_amb8d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=246563548]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1428937634]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_7w65i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1241355550]
+position = Vector2(-4, -2)
+shape = SubResource("RectangleShape2D_ml47k")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnMissileEntered"]

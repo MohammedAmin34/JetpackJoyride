@@ -7,7 +7,7 @@ public partial class Coins : Node2D
 	public delegate void ScoreEventHandler();
 
 	int updateScore = 1;
-	static public float speed = 200;
+	static public float speed = 280;
 	private bool isDead;
 
 	public override void _Ready()
